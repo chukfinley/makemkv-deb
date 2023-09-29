@@ -1,2 +1,2 @@
-# makemkv-deb
-Debian package for makemkv
+# makemkv-beta-deb
+Debian package for makemkv, created with checkinstall
