@@ -1,6 +1,5 @@
 echo "Installing apt packages"
-sudo apt-get install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libavcodec-dev libgl1-mesa-dev git ffmpeg wget 
-mkdir makemkv
+sudo apt-get install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libavcodec-dev libgl1-mesa-dev git ffmpeg wget qtbase5-dev zlib1g-devmkdir makemkv
 cd makemkv
 echo "Downloading Makemkv"
 wget https://www.makemkv.com/download/makemkv-bin-1.17.5.tar.gz
