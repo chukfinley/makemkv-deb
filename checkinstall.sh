@@ -1,5 +1,14 @@
-echo "Installing apt packages"
-sudo apt-get install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libavcodec-dev libgl1-mesa-dev git ffmpeg wget 
+PKGS="build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libavcodec-dev libgl1-mesa-dev git ffmpeg wget checkinstall"
+missing=()
+for p in $PKGS; do
+    dpkg-query -W -f='${Status}' "$p" 2>/dev/null | grep -q "install ok installed" || missing+=("$p")
+done
+if [ ${#missing[@]} -gt 0 ]; then
+    echo "Installing missing apt packages: ${missing[*]}"
+    sudo apt-get install -y "${missing[@]}"
+else
+    echo "All apt packages already installed"
+fi
 mkdir makemkv
 cd makemkv
 echo "Downloading Makemkv"
